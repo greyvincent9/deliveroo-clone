@@ -1,11 +1,21 @@
 import { View, Text } from "react-native";
-import React from "react";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { useLayoutEffect } from "react";
+import { useNavigation } from "@react-navigation/native";
 
 const HomeScreen = () => {
+	const navigation = useNavigation();
+
+	useLayoutEffect(() => {
+		navigation.setOptions({
+			headerShown: false,
+		});
+	}, []);
+
 	return (
-		<View>
-			<Text className="text-blue-500">HomeScreen</Text>
-		</View>
+		<SafeAreaView>
+			<Text className="text-blue-500">Hello</Text>
+		</SafeAreaView>
 	);
 };
 
