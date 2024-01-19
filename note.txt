@@ -1,0 +1,5 @@
+React Native app
+Redux
+Tailwind
+React Navigation
+Sanity
