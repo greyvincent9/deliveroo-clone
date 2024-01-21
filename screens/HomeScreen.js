@@ -26,7 +26,12 @@ const HomeScreen = () => {
 		sanityClient
 			.fetch(
 				`
-			*[_type == "restaurant"] {
+				*[_type == "featured"] {
+					...,
+				restaurants[]->{
+					...,
+					dishes[]->
+				}
 				
 			}`
 			)
@@ -82,7 +87,17 @@ const HomeScreen = () => {
 				{/* Categories */}
 				<Categories />
 
-				{/* Featured Rows*/}
+				{/* Featured */}
+
+				{featuredCategories?.map((category) => (
+					<FeaturedRow
+						key={category._id}
+						id={category._id}
+						title={category.name}
+						description={category.short_description}
+					/>
+				))}
+
 				<FeaturedRow
 					id="123"
 					title="Featured"
